@@ -123,6 +123,6 @@ normalize v =
   scale (1 / length v) v
 
 
-dot : Vec2 -> Vec2 -> Vec2
+dot : Vec2 -> Vec2 -> Float
 dot (Vec2 x1 y1) (Vec2 x2 y2) =
-  Vec2 (x1 * x2) (y1 * y2)
+  (x1 * x2) + (y1 * y2)
