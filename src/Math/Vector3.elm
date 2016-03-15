@@ -1,4 +1,4 @@
-module Vector3 (..) where
+module Math.Vector3 (..) where
 
 {-| A linear algebra library using pure Elm. Geared towards 3D graphics and use
 with `Graphics.WebGL`. All vectors are immutable.
@@ -134,4 +134,18 @@ normalize v =
 dot : Vec3 -> Vec3 -> Float
 dot (Vec3 x1 y1 z1) (Vec3 x2 y2 z2) =
   x1 * x2 + y1 * y2 + z1 * z2
-     
+
+
+cross : Vec3 -> Vec3 -> Vec3
+cross (Vec3 a0 a1 a2) (Vec3 b0 b1 b2) =
+  let
+    r0 =
+      a1 * b2 - a2 * b1
+
+    r1 =
+      a2 * b0 - a0 * b2
+
+    r2 =
+      a0 * b1 - a1 * b0
+  in
+    Vec3 r0 r1 r2

@@ -1,4 +1,4 @@
-module Vector4 (..) where
+module Math.Vector4 (..) where
 
 {-| A linear algebra library using pure Elm. Geared towards 3D graphics and use
 with `Graphics.WebGL`. All vectors are immutable.
