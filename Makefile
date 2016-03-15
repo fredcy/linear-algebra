@@ -1,4 +1,4 @@
-SRC = src/Vector2.elm src/Vector3.elm
+SRC = src/Vector2.elm src/Vector3.elm src/Vector4.elm
 
 build:
 	elm make $(SRC)
