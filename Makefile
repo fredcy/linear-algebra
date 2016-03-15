@@ -1,7 +1,15 @@
+SRC = src/Vector2.elm
+
 build:
-	elm make src/Vector.elm
+	elm make $(SRC)
+
+buildtest:
+	(cd test && elm make Test.elm)
 
 watch:
-	$(MAKE) build
-	fswatch -l 0.2 src/Vector.elm | \
-	  while read f; do echo "$$f"; $(MAKE) build; done
+	$(MAKE) buildtest
+	fswatch -l 0.2 $(SRC) test/Test.elm | \
+	  while read f; do echo "$$f"; $(MAKE) build buildtest; done
+
+testbrowser:
+	browser-sync start --server --files test/index.html --startPath test/index.html

@@ -1,4 +1,23 @@
-module Vector (..) where
+module Vector2 (..) where
+
+{-| A linear algebra library using pure Elm. Geared towards 3D graphics and use
+with `Graphics.WebGL`. All vectors are immutable.
+
+# Create
+@docs Vec2, vec2
+
+# Get and Set
+The set functions create a new copy of the vector, updating a single field.
+
+@docs getX, getY, setX, setY
+
+# Operations
+@docs add, sub, negate, scale, dot, normalize, direction,
+      length, lengthSquared, distance, distanceSquared
+
+# Conversions
+@docs toTuple, fromTuple, toRecord, fromRecord
+-}
 
 
 type Vec2
@@ -102,3 +121,8 @@ distance v1 v2 =
 normalize : Vec2 -> Vec2
 normalize v =
   scale (1 / length v) v
+
+
+dot : Vec2 -> Vec2 -> Vec2
+dot (Vec2 x1 y1) (Vec2 x2 y2) =
+  Vec2 (x1 * x2) (y1 * y2)
