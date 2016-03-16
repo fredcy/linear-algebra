@@ -17,22 +17,26 @@ main =
 vec3Suite =
   Benchmark.Suite
     "Vector3 suite"
-    [ Benchmark.bench2 "V3.cross" V3.cross (V3.Vec3 2 3 4) (V3.Vec3 5 6 7)
-    , Benchmark.bench2 "V3.distance" V3.distance (V3.Vec3 2 3 4) (V3.Vec3 5 6 7)
+    [ Benchmark.bench2 "V3.cross" V3.cross (V3.vec3 2 3 4) (V3.vec3 5 6 7)
+    , Benchmark.bench2 "V3.distance" V3.distance (V3.vec3 2 3 4) (V3.vec3 5 6 7)
     ]
 
 
 mat4Suite =
   let
-    m1 =
-      M4.Mat4 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+    driver _ =
+      let
+        m1 =
+          M4.makePerspective 10 20 30 40
 
-    m2 =
-      M4.Mat4 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+        m2 =
+          M4.makeFrustum 100 200 300 400 50 60
+      in
+        M4.mul m1 m2
   in
     Benchmark.Suite
       "Matrix4 suite"
-      [ Benchmark.bench2 "M4.mul" M4.mul m1 m2 ]
+      [ Benchmark.bench1 "M4.mul" driver () ]
 
 
 results : Signal.Mailbox String
