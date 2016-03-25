@@ -1,7 +1,7 @@
-SRC = Bench.elm
+SRC = Bench.elm ../src/LinearAlgebra/*.elm
 
 build:
-	elm make $(SRC)
+	elm make Bench.elm
 
 watch:
 	-$(MAKE) build

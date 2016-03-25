@@ -3,6 +3,8 @@ module Main (..) where
 import LinearAlgebra.Vector2 as V2 exposing (vec2)
 import LinearAlgebra.Vector3 as V3 exposing (vec3)
 import LinearAlgebra.Vector4 as V4 exposing (vec4)
+import LinearAlgebra.Matrix4 as M4
+import Math.Matrix4
 import ElmTest exposing (..)
 
 
@@ -71,6 +73,19 @@ vector4Suite =
       , test "dot" <| assertEqual 154 <| V4.dot (vec4 2 5 10 3) (vec4 3 7 8 11)
       ]
 
+matrix4Suite =
+  let
+    mId =
+      M4.identity
+    mPer =
+      M4.makePerspective 45 1.5 5 50
+  in
+    suite
+     "Matrix4"
+     [ test "mul" <| assertEqual mId (M4.mul mId mId)
+     , test "mul2" <| assertEqual mPer (M4.mul mId mPer)
+     ]
+     
 
 main =
   elementRunner
@@ -79,4 +94,5 @@ main =
         [ vector2Suite
         , vector3Suite
         , vector4Suite
+        , matrix4Suite
         ]

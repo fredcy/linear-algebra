@@ -9,6 +9,7 @@ import LinearAlgebra.Vector2 as V2 exposing (Vec2, vec2)
 import LinearAlgebra.Vector3 as V3 exposing (Vec3, vec3)
 import LinearAlgebra.Matrix4 as M4
 import Math.Vector2
+import Math.Matrix4 as NativeM4
 
 
 main : Signal Graphics.Element.Element
@@ -35,11 +36,22 @@ mat4Suite =
           M4.makeFrustum 100 200 300 400 50 60
       in
         M4.mul m1 m2
+
+    driverNative _ =
+      let
+        m1 =
+          NativeM4.makePerspective 10 20 30 40
+
+        m2 =
+          NativeM4.makeFrustum 100 200 300 400 50 60
+      in
+        NativeM4.mul m1 m2
   in
     Benchmark.Suite
       "Matrix4 suite"
-      [ Benchmark.bench1 "M4.mul" driver () ]
-
+      [ Benchmark.bench1 "Matrix4.mul" driver ()
+      , Benchmark.bench1 "Native Matrix4.mul" driverNative ()
+      ]
 
 dotSuite =
   let
@@ -77,4 +89,4 @@ results =
 
 port benchResults : Task Benchmark.Never ()
 port benchResults =
-  Benchmark.runWithProgress (Just results) dotSuite `andThen` (\_ -> Task.succeed ())
+  Benchmark.runWithProgress (Just results) mat4Suite `andThen` (\_ -> Task.succeed ())

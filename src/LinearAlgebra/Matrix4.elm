@@ -172,7 +172,7 @@ mul (Mat4 a11 a12 a13 a14 a21 a22 a23 a24 a31 a32 a33 a34 a41 a42 a43 a44) (Mat4
     r15 =
       a41 * b14 + a42 * b24 + a43 * b34 + a44 * b44
   in
-    mat4 r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15
+    Mat4 r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15
 
 
 {-| Creates a transformation matrix for translating each of the x, y, and z axes
@@ -234,7 +234,7 @@ makeFrustum left right bottom top znear zfar =
     m43 =
       -2 * zfar * znear / (zfar - znear)
   in
-    mat4 m11 0 0 0 0 m22 0 0 m31 m32 m33 -1 0 0 m43 0
+    Mat4 m11 0 0 0 0 m22 0 0 m31 m32 m33 -1 0 0 m43 0
 
 
 {-|
