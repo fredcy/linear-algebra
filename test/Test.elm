@@ -1,8 +1,8 @@
 module Main (..) where
 
-import Math.Vector2 as V2 exposing (vec2)
-import Math.Vector3 as V3 exposing (vec3)
-import Math.Vector4 as V4 exposing (vec4)
+import LinearAlgebra.Vector2 as V2 exposing (vec2)
+import LinearAlgebra.Vector3 as V3 exposing (vec3)
+import LinearAlgebra.Vector4 as V4 exposing (vec4)
 import ElmTest exposing (..)
 
 

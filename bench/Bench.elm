@@ -5,9 +5,10 @@ import Signal
 import Benchmark
 import Task exposing (Task, andThen)
 import Text
-import Math.Vector2 as V2 exposing (Vec2, vec2)
-import Math.Vector3 as V3 exposing (Vec3, vec3)
-import Math.Matrix4 as M4
+import LinearAlgebra.Vector2 as V2 exposing (Vec2, vec2)
+import LinearAlgebra.Vector3 as V3 exposing (Vec3, vec3)
+import LinearAlgebra.Matrix4 as M4
+import Math.Vector2
 
 
 main : Signal Graphics.Element.Element
@@ -56,12 +57,16 @@ dotSuite =
 
     driver _ =
       V2.dot (V2.Vec2 10 20) (V2.Vec2 30 40)
+
+    driverNative _ =
+      Math.Vector2.dot (Math.Vector2.vec2 10 10) (Math.Vector2.vec2 30 40)
   in
     Benchmark.Suite
       "Dot suite"
       [ Benchmark.bench1 "tuple dot" driverTuple ()
       , Benchmark.bench1 "simple dot" driverSimple ()
       , Benchmark.bench1 "V2.dot" driver ()
+      , Benchmark.bench1 "native dot" driverNative ()
       ]
 
 

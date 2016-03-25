@@ -1,4 +1,4 @@
-SRC = src/Math/Vector2.elm src/Math/Vector3.elm src/Math/Vector4.elm src/Math/Matrix4.elm
+SRC = src/LinearAlgebra/*.elm
 
 build:
 	elm make $(SRC)

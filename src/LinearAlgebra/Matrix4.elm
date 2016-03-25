@@ -1,4 +1,4 @@
-module Math.Matrix4 (..) where
+module LinearAlgebra.Matrix4 (..) where
 
 {-| Matrix math
 
@@ -16,7 +16,7 @@ It currently implements only the functions needed for the elm-webgl "crate.elm" 
 
 -}
 
-import Math.Vector3 as V3 exposing (Vec3, vec3)
+import LinearAlgebra.Vector3 as V3 exposing (Vec3, vec3)
 
 
 {-| 4x4 matrix type
