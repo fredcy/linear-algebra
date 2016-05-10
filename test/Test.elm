@@ -1,10 +1,10 @@
-module Main (..) where
+module Main exposing (..)
 
 import LinearAlgebra.Vector2 as V2 exposing (vec2)
 import LinearAlgebra.Vector3 as V3 exposing (vec3)
 import LinearAlgebra.Vector4 as V4 exposing (vec4)
 import LinearAlgebra.Matrix4 as M4
-import Math.Matrix4
+-- import Math.Matrix4
 import ElmTest exposing (..)
 
 

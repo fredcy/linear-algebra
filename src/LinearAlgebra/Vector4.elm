@@ -1,4 +1,4 @@
-module LinearAlgebra.Vector4 (..) where
+module LinearAlgebra.Vector4 exposing (..)
 
 {-| A linear algebra library using pure Elm. Geared towards 3D graphics and use
 with `Graphics.WebGL`. All vectors are immutable.

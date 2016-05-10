@@ -1,4 +1,4 @@
-module LinearAlgebra.Matrix4 (..) where
+module LinearAlgebra.Matrix4 exposing (..)
 
 {-| Matrix math
 
